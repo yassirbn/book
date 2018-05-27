@@ -1,0 +1,55 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>form</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding text-center>
+
+    <ion-label >Full Name</ion-label>
+
+    <ion-input [(ngModel)]="name" type="text"></ion-input>
+    <ion-label >e-mail Adress</ion-label>
+
+    <ion-input [(ngModel)]="email" type="email"></ion-input>
+    <ion-label >Password</ion-label>
+
+    <ion-input [(ngModel)]="password" type="password"></ion-input>
+    <ion-label >Confirm Password </ion-label>
+
+    <ion-input [(ngModel)]="passwordC" type="password"></ion-input>
+     
+
+    <button ion-button block (click)="createAccount(name,password,passwordC,email)" >Create account</button>
+
+
+   
+  <div padding text-center>
+
+      <img src={{profilePhotoUrl}} />
+      <a href={{profilePhotoUrl}}>profilePhotoUrl</a>
+      <button ion-button clear (click)=" presentActionSheet()">Take a photo</button>
+  
+    </div>
+    <ion-col width-50>
+        <button ion-button color="secondary" type="button" full round large (click)="selectPhoto()">
+                    <ion-icon name="md-image"></ion-icon>
+                </button>
+      </ion-col>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <button ion-button icon-left (click)="presentActionSheet()">
+        <ion-icon name="camera"></ion-icon>Select Image
+      </button>
+      <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
+        <ion-icon name="cloud-upload"></ion-icon>Upload
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

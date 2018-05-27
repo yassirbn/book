@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1045071259602",
+    "firebase_url": "https://spotboook.firebaseio.com",
+    "project_id": "spotboook",
+    "storage_bucket": "spotboook.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045071259602:android:4681f1838e569ac4",
+        "android_client_info": {
+          "package_name": "io.ionic.spotbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045071259602-vm1vbpuflrifu1hi34bj2icsb89ji09d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtegPhcePDEBUONKa1kl4tUKZdl9y9tj0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

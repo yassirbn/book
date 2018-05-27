@@ -1,0 +1,63 @@
+
+<ion-header >
+
+  <ion-navbar>
+    <ion-title>Tendance</ion-title>
+  </ion-navbar>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let seitem of items">
+    {{ seitem.name }}
+  </ion-item>
+</ion-list>
+<div *ngIf="visitor==true"><button ion-button outline (click)="connect()">connect</button><button ion-button outline (click)='SignUp()'>SignUp</button></div>
+</ion-header>
+
+
+<ion-content fullscreen>
+  <ion-card *ngFor="let item of Spots">
+
+    <ion-card-content >
+        <ion-item>
+            <ion-avatar item-left>
+              <img src="https://firebasestorage.googleapis.com/v0/b/spotboook.appspot.com/o/images%2F11209669_901352076600939_360476372736180888_n.jpg?alt=media&token=0076ea5f-cc37-4d72-a8a5-fb860c642996" />
+            </ion-avatar>
+            <h2>{{item.postedBy}}</h2>
+            <p>{{item.date}}</p>
+          </ion-item>
+          <ion-slides class='image-slider' loop='true' slidesPerView='2' >
+              <ion-slide >
+                <img src="{{item.photo}}" class="thumb-img" imageViewer>
+              </ion-slide>
+            </ion-slides>
+          
+      <ion-row>
+
+        <ion-label>{{item.adress[0]}}</ion-label>
+        <button (click)='guideMe(item.adress)'>guideme</button>
+        <ion-label>{{item.description}}</ion-label>
+        
+      </ion-row>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{item.note}}</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small (click)="getComments(item)">
+          <ion-icon name="text"></ion-icon>
+          <div>{{item.comments.length}}</div>
+        </button>
+      </ion-col>
+      
+      </ion-row>
+      <ion-row *ngFor="let com of item.comments">
+        <ion-item item-left>
+            {{com.user}} {{com.comment}}
+        </ion-item>
+      </ion-row>
+  </ion-card>
+</ion-content>

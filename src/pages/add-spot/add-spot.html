@@ -1,0 +1,40 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Spot</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding text-center>
+
+    <ion-label >Spot Name</ion-label>
+    <ion-input [(ngModel)]="name" type="text"></ion-input>
+
+    <ion-label >description</ion-label>
+    <ion-input [(ngModel)]="description" type="text"></ion-input>
+
+    <ion-label >Adress</ion-label>
+    <button  (click)='position()' ><ion-icon name="pin"></ion-icon></button>
+    <div>{{this.adress}}</div>
+
+   
+     
+
+    <button ion-button block (click)="createSpot(name,description,adress)" >Create account</button>  
+
+
+      <ion-item>
+        <p>{{imageURI}}</p>
+        <button ion-button color="secondary" (click)=" presentActionSheet()">Get Image</button>
+      </ion-item>
+      <ion-item>
+        <h4>Image Preview</h4>
+        <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" />
+      </ion-item>
+      <ion-item>
+        <button ion-button (click)="uploadFile()">Upload</button>
+      </ion-item>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+
+  <div>
+      <ion-label >User Name</ion-label>
+
+      <ion-input [(ngModel)]="username" type="text"></ion-input>
+
+      <ion-label >Password</ion-label>
+
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
+    
+    <button ion-button block (click)="connect(username,password)">
+       Connect
+      </button>
+      
+  </div>
+
+  <button ion-button block (click)="getInfo(username)">get info</button>
+  
+  <div *ngIf="isLoggedIn; else facebookLogin">
+    <h2>Hi, {{users.name}} ({{users.email}})</h2>
+    <p>
+      Gender: {{users.gender}}
+    </p>
+    <p>
+      <img src="{{users.picture.data.url}}" width="100" alt="{{users.name}}" />
+    </p>
+    <p>
+      <button ion-button icon-right (click)="logoutF()">
+        Logout
+      </button>
+    </p>
+  </div>
+  <ng-template #facebookLogin>
+    <button ion-button icon-right (click)="loginF()">
+      Login with
+      <ion-icon name="logo-facebook"></ion-icon>
+    </button>
+  </ng-template>
+  <p>OR</p>
+  <div><button ion-button block (click)="SignUpL()">Create your acount<ion-icon name="add"></ion-icon></button></div>
+  
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      About
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card >
+        <img src="{{photo}}"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{name}}
+            </ion-card-title>
+          <p>
+          {{email}}
+          </p>
+          <ion-item>
+            <ion-icon name="md-person" item-start (click)='getFollowing()'></ion-icon>
+            Following
+            <ion-badge item-end>{{nbFllowers}}</ion-badge>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="ios-pin-outline" item-start (click)='getSpots()'></ion-icon>
+            Spots
+            <ion-badge item-end>{{nbSpots}}</ion-badge>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <div *ngIf="FollowingInfo.length>0"><ion-icon name="close" item-start (click)='closeFollow()'></ion-icon></div>
+      <ion-item *ngFor="let item of FollowingInfo" (click)='showProfile(item.name)'>
+        <ion-avatar item-left>
+          <img src="{{item.photo}}" />
+        </ion-avatar>
+        <h2>{{item.name}}</h2>
+        
+      </ion-item>
+      <div *ngIf="SpotsInfo.length>0"><ion-icon name="close" item-start (click)='closeFollow()'></ion-icon></div>
+      <ion-item *ngFor="let item of SpotsInfo">
+        
+        <h2>{{item.name}}</h2>
+        <ion-badge item-end>
+          <ion-icon name="ios-chatboxes-outline" ></ion-icon>
+          {{item.comments}}
+        
+        <ion-icon name="ios-stats-outline" ></ion-icon>
+          {{item.note}}
+        </ion-badge>
+      </ion-item>
+
+      
+      <button (click)="presentActionSheet()">.... </button>
+            
+      
+
+</ion-content>

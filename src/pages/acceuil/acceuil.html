@@ -1,0 +1,73 @@
+
+<ion-header>
+  
+  <ion-searchbar (ionInput)="getItems(input)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let item of items">
+    {{ item }}
+  </ion-item>
+</ion-list>
+
+</ion-header>
+
+
+
+
+  <ion-content class="cards-bg social-cards">
+
+    <ion-content fullscreen>
+      <ion-card *ngFor="let item of friendsSpot">
+    
+        <ion-card-content >
+            <ion-item>
+                <ion-avatar item-left>
+                  <img src="https://firebasestorage.googleapis.com/v0/b/spotboook.appspot.com/o/images%2F11209669_901352076600939_360476372736180888_n.jpg?alt=media&token=0076ea5f-cc37-4d72-a8a5-fb860c642996" />
+                </ion-avatar>
+                <h2>{{item.postedBy}}</h2>
+                <p>{{item.date}}</p>
+              </ion-item>
+              <ion-slides class='image-slider' loop='true' slidesPerView='2' >
+                  <ion-slide >
+                    <img src="{{item.photo}}" class="thumb-img" imageViewer>
+                  </ion-slide>
+                </ion-slides>
+              
+          <ion-row>
+            <ion-label>{{item.adress}}</ion-label>
+            <ion-label>{{item.description}}</ion-label>
+            
+          </ion-row>
+        </ion-card-content>
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>{{item.note}}</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left clear small (click)="getComments(item)">
+              <ion-icon name="text"></ion-icon>
+              <div> <br></div>
+            </button>
+          </ion-col>
+          
+          </ion-row>
+          <ion-row *ngFor="let com of item.comments">
+            <p>{{com}}</p>
+    
+          </ion-row>
+      </ion-card>
+
+<!--><!-->
+  <ion-fab right bottom>
+      <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+      <ion-fab-list side="left">
+          <button ion-fab (click)="addSpot()">Spot</button>
+          <button ion-fab (click)="addEvent()">event</button>
+        </ion-fab-list>
+    </ion-fab>
+<!--><!-->
+    
+      
+</ion-content>
